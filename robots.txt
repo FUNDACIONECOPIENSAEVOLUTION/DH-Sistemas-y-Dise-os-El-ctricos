@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fundacionecopiensaevolution.github.io/DH-Sistemas-y-Dise-os-El-ctricos/sitemap.xml
