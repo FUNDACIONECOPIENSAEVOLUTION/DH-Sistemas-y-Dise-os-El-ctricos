@@ -91,9 +91,11 @@ def service_box(x,top,w,h,index,name,description):
  y=top-h
  rect(x,y,w,h,PALE,8)
  rect(x,y+h-7,w,7,GOLD)
- txt(x+19,y+h-35,f'{index:02d}',14,GOLD2,BOLD)
- y1=para(x+19,y+h-65,name,w-38,13,DARK,17,BOLD)
- para(x+19,y1-11,description,w-38,9.1,GRAY,14,max_lines=12)
+ service_image=['diseno','redes-tension','puesta-tierra','bandejas','suministro','iluminacion','mantenimiento','automatizacion','cableado','seguridad','domotica','solar'][(index-1)%12]
+ draw_im('assets/servicios/'+service_image+'.webp',x+3,y+h-77,w-6,68)
+ txt(x+12,y+h-94,f'{index:02d}',10,GOLD2,BOLD)
+ y1=para(x+12,y+h-109,name,w-24,10.1,DARK,12,BOLD,max_lines=2)
+ para(x+12,y1-8,description,w-24,7.6,GRAY,10.2,max_lines=4)
 
 def section_item(y,number,heading,body):
  txt(51,y,number,12,GOLD2,BOLD)
@@ -106,12 +108,10 @@ def section_item(y,number,heading,body):
 PAGE+=1;rect(0,0,W,H,DARK);rect(0,H-8,W,8,GOLD)
 # industrial vertical lines
 for x in range(10,int(W),55):rect(x,H-420,1,340,HexColor('#26333B'))
-if not draw_im('assets/emblema.webp',48,H-332,W-96,230):
+if not draw_im('assets/identidad.webp',45,H-347,W-90,245):
  txt(58,H-240,'ϟ',112,GOLD,BOLD)
-txt(48,H-422,'DH',72,GOLD,BOLD)
-rect(49,H-439,128,5,GOLD)
-txt(48,H-485,'DAVID HERNÁNDEZ',29,WHITE,BOLD)
-txt(49,H-509,'SISTEMAS Y DISEÑOS ELÉCTRICOS',11,HexColor('#C5CCD3'),BOLD)
+txt(48,H-425,'DAVID HERNÁNDEZ',17,WHITE,BOLD)
+txt(48,H-452,'SISTEMAS Y DISEÑOS ELÉCTRICOS',10,HexColor('#C5CCD3'),BOLD)
 txt(48,H-588,'PORTAFOLIO DE SERVICIOS',13,GOLD,BOLD)
 para(48,H-625,'Ingeniería eléctrica · Construcción · Mantenimiento · Tecnología · Eficiencia energética',W-96,12,WHITE,20)
 rect(0,0,W,98,HexColor('#131C25'))
@@ -129,7 +129,7 @@ para(44,H-481,'Consolidar relaciones de confianza mediante calidad técnica, inn
 for i,(head,desc) in enumerate([('COMPROMISO','Con el alcance acordado'),('RESPONSABILIDAD','Con las personas y el entorno'),('INNOVACIÓN','Tecnología útil y eficiente'),('PROFESIONALISMO','Rigor y atención técnica')]):
  x=44+(i%2)*258;y=H-620-(i//2)*87
  rect(x,y-35,239,72,PALE,6);txt(x+13,y+13,head,10,DARK,BOLD);txt(x+13,y-9,desc,8.3,GRAY)
- end() if False else None
+end() if False else None
 end()
 
 # 3 + 4 services
@@ -185,9 +185,21 @@ for i,(h,descr) in enumerate(sectors):
  para(44,y-44,descr,W-115,10.2,GRAY,17)
 end()
 
+# 10 allied institution
+title('Articulación','Innovación y sostenibilidad','Alianza institucional y oportunidades de impacto comunitario.')
+rect(44,H-480,W-88,230,PALE,12)
+rect(65,H-449,115,154,DARK2,10)
+txt(90,H-403,'E',67,WHITE,BOLD)
+txt(79,H-427,'ECO',13,GOLD,BOLD)
+txt(205,H-301,'FUNDACIÓN ECOPIENSA',19,DARK,BOLD)
+txt(205,H-329,'EVOLUTION',20,HexColor('#497443'),BOLD)
+para(205,H-357,'Economía circular, educación ambiental, innovación y desarrollo comunitario.',W-263,10.2,GRAY,18)
+para(44,H-536,'La vinculación institucional representa una oportunidad de articular proyectos eléctricos con iniciativas ambientales y de impacto social. Esta referencia informativa no implica por sí sola la existencia de convenios contractuales vigentes.',W-88,10.2,DARK,17)
+end()
+
 # 10 closing
 PAGE+=1;rect(0,0,W,H,DARK);rect(0,H-8,W,8,GOLD)
-if not draw_im('assets/emblema.webp',47,H-309,W-94,214):txt(47,H-220,'DH  ϟ',64,GOLD,BOLD)
+if not draw_im('assets/identidad.webp',45,H-340,W-90,245):txt(47,H-220,'DH  ϟ',64,GOLD,BOLD)
 txt(46,H-396,'HABLEMOS DE SU',27,WHITE,BOLD)
 txt(46,H-436,'PRÓXIMO PROYECTO.',27,GOLD,BOLD)
 para(46,H-477,'Estamos disponibles para conocer su necesidad y revisar el alcance técnico y comercial de la solución que busca.',W-92,11,HexColor('#B2BDC6'),19)
