@@ -92,7 +92,7 @@ def service_box(x,top,w,h,index,name,description):
  rect(x,y,w,h,PALE,8)
  rect(x,y+h-7,w,7,GOLD)
  service_image=['diseno','redes-tension','puesta-tierra','bandejas','suministro','iluminacion','mantenimiento','automatizacion','cableado','seguridad','domotica','solar'][(index-1)%12]
- draw_im('assets/servicios/'+service_image+'.webp',x+3,y+h-77,w-6,68)
+ draw_im('assets/servicios-v2/'+service_image+'.webp',x+3,y+h-77,w-6,68)
  txt(x+12,y+h-94,f'{index:02d}',10,GOLD2,BOLD)
  y1=para(x+12,y+h-109,name,w-24,10.1,DARK,12,BOLD,max_lines=2)
  para(x+12,y1-8,description,w-24,7.6,GRAY,10.2,max_lines=4)

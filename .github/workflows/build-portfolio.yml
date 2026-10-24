@@ -1,10 +1,11 @@
-name: Generar portafolio PDF
+name: Publicar imagenes optimizadas y portafolio PDF
 on:
   push:
     branches: [main]
     paths:
-      - 'scripts/generate_portfolio.py'
-      - 'assets/**'
+      - 'scripts/**'
+      - 'assets/servicios/**'
+      - 'assets/servicios-v2/**'
       - '.github/workflows/build-portfolio.yml'
   workflow_dispatch:
 permissions:
@@ -19,14 +20,16 @@ jobs:
           python-version: '3.11'
       - name: Instalar dependencias
         run: pip install reportlab pillow
+      - name: Optimizar fotografias para tarjetas
+        run: python scripts/build_visual_assets.py
       - name: Generar portafolio
         run: python scripts/generate_portfolio.py
-      - name: Publicar PDF si hay cambios
+      - name: Publicar imagenes y PDF
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/portafolio-dh-david-hernandez.pdf
+          git add assets/servicios-v2 docs/portafolio-dh-david-hernandez.pdf
           if ! git diff --cached --quiet; then
-            git commit -m 'Generar portafolio PDF institucional'
+            git commit -m 'Optimizar imagenes y PDF del portafolio DH'
             git push
           fi
